@@ -8,6 +8,7 @@ const FeedbackService = require('./services/FeedbackService');
 const livereload = require('livereload');
 const connectLiveReload = require('connect-livereload');
 
+// live reloader
 const liveReloadServer = livereload.createServer();
 liveReloadServer.server.once('connection', () => {
   setTimeout(() => {
@@ -65,4 +66,3 @@ module.exports = (config) => {
 
   return app;
 };
-console.log('j');
