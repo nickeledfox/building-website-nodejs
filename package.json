@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node bin/www",
-    "watch": "nodemon --ext *",
+    "watch": "nodemon bin/www -e js,pug,css",
     "test": "npx mocha --exit --recursive test/"
   },
   "author": "",
@@ -18,6 +18,7 @@
     "http-errors": "^2.0.0",
     "mongodb": "^4.3.1",
     "pug": "^3.0.2",
+    "save": "^2.4.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

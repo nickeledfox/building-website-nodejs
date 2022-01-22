@@ -5,11 +5,22 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const SpeakerService = require('./services/SpeakerService');
 const FeedbackService = require('./services/FeedbackService');
+const livereload = require('livereload');
+const connectLiveReload = require('connect-livereload');
+
+const liveReloadServer = livereload.createServer();
+liveReloadServer.server.once('connection', () => {
+  setTimeout(() => {
+    liveReloadServer.refresh('/');
+  }, 100);
+});
 
 module.exports = (config) => {
   const app = express();
   const speakers = new SpeakerService(config.data.speakers);
   const feedback = new FeedbackService(config.data.feedback);
+
+  app.use(connectLiveReload());
 
   app.set('view engine', 'pug');
   app.set('views', path.join(__dirname, './views'));
@@ -43,10 +54,9 @@ module.exports = (config) => {
   }
 
   // error handler
-  // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
     res.locals.message = err.message;
-    const status = err.status || 500; // If no status is provided, let's assume it's a 500
+    const status = err.status || 500;
     res.locals.status = status;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
     res.status(status);
@@ -55,3 +65,4 @@ module.exports = (config) => {
 
   return app;
 };
+console.log('j');
