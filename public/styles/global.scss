@@ -1,0 +1,35 @@
+@use "vars" as var;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var.$ff;
+  font-weight: 600;
+  color: var.$title-col;
+}
+
+p {
+  font-family: inherit;
+  font-weight: 100;
+}
+
+li {
+  font-family: inherit;
+  font-weight: 300;
+}
+
+a {
+  color: var.$link-col;
+  &:hover {
+    color: var.$hover-col;
+  }
+}
