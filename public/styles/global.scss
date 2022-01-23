@@ -21,3 +21,16 @@ p {
   font-family: inherit;
   font-weight: 100;
 }
+
+li {
+  font-family: inherit;
+  font-weight: 300;
+}
+
+a {
+  color: var.$link-col;
+  &:hover {
+    color: var.$hover-col;
+  }
+}
+
