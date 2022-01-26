@@ -1,7 +1,6 @@
 extends ../layout/index
-
-block content      
-  .container#speakerList
+block content
+  #speakerList.container
     .row
       .col-sm-8
         article.speakerslist
@@ -11,14 +10,12 @@ block content
                 .col-sm-8
                   h3.speakerslist-title=speaker.title
                   h5.speakerslist-name
-                    | with&nbsp;
+                    | with &nbsp;
                     a(href=`/speakers/${speaker.shortname}`)=speaker.name
                   p.speakerslist-info
                     a(href=`/speakers/${speaker.shortname}`)
                       img.speakerslist-img.img-circle.pull-left(src=`/images/speakers/${speaker.shortname}_tn.jpg`, alt=`Photo of ${speaker.name}`)
-                    | #{speaker.summary}
-
-      if artwork
-        aside.col-sm-4
+                    | #{speaker.summary}  
+      aside.col-sm-4
+        article.sidebar
           include ../includes/artwork
-        
